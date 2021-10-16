@@ -1,4 +1,4 @@
-module github.com/onkyou/gin_middleware
+module github.com/Onkyou/gin_middleware
 
 go 1.17
 
