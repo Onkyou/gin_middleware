@@ -8,7 +8,7 @@ import (
 func RequestIdMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		uuid, _ := uuid.NewV4()
-		c.Writer.Header().Set("X-Request-Id", uuid.String())
+		c.Writer.Header().Set("X-Request-ID", uuid.String())
 		c.Next()
 	}
 }
