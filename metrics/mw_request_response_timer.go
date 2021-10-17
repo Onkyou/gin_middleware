@@ -22,11 +22,11 @@ func RequestResponseTimerMiddleware() gin.HandlerFunc {
 }
 
 //
-//	Calculates processing time needed from request received (dated by middleware) to response sent
+//	Calculates processing time needed from request received (dated by middleware) to response sent in miliseconds
 //	Should be called as late as possible before sending the response
 //
-func GetTimeConsumedFromContext(c *gin.Context) time.Duration {
+func GetTimeConsumedFromContext(c *gin.Context) int64 {
 	timeReceived := c.GetTime(Key_Metrics_ReceivedOn)
 	timeResponse := time.Now()
-	return timeResponse.Sub(timeReceived)
+	return timeResponse.Sub(timeReceived).Milliseconds()
 }
